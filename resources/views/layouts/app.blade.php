@@ -20,12 +20,13 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
         <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="friends">Friends</a>
-        <a class="nav-link" href="groups">Groups</a>
+        <a class="nav-link" href="/friends">Friends</a>
+        <a class="nav-link" href="/groups">Group</a>
+        <a class="nav-link" href="/groups">Review</a>
         </div>
     </div>
     </nav>
-    <a href="/friends/create" class="card-link btn-primary">Tambah Teman</a>
+    <a href="/friends/create" class="card-link btn-primary">Tambah produk</a>
 
 
     @yield('content')

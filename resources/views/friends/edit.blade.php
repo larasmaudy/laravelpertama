@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', friends')
+@section('title', 'friends')
 
 @section('content')
 
@@ -16,16 +16,16 @@
         @enderror
     </div>
     <div class="form-group">
-        <label for="exampleInputNotlp">No Telepon</label>
-        <input type="text" class="form-control" name="no_tlp" id="exampleInputNotlp" value="{{old('no_tlp) ? old('no_tlp) : $friend['no_tlp'] }}">
-        @error('no_tlp')
+        <label for="exampleInputNotlp">No Tlpn</label>
+        <input type="text" class="form-control" name="Persediaan" id="exampleInputNotlp" value="{{old('Persediaan') ? old('Persediaan') : $friend['Persediaan'] }}">
+        @error('Persediaan')
         <div class="alert alert-denger">{{ $message }}</div>
         @enderror
     </div>
     <div class="form-group">
-        <label for="exampleInputAlamat">Alamat</label>
-        <input type="text" class="form-control" name="alamat" id="exampleInputAlamat" value="{{old('alamat') ? old('alamat') : $friend['alamat'] }}">
-        @error('alamat')
+        <label for="exampleInputAlamat">harga</label>
+        <input type="text" class="form-control" name="harga" id="exampleInputAlamat" value="{{old('harga') ? old('harga') : $friend['harga'] }}">
+        @error('harga')
         <div class="alert alert-denger">{{$message}}</div>
         @enderror
     </div>
