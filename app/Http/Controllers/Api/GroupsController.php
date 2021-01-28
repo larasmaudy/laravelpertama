@@ -60,8 +60,13 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        $group = Groups::where('id', $id)->first();
-        return view('groups.show', ['group' => $group]);
+        $friend = Friends::where('id', $id)->first();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Detail Data order',
+            'data'    => $friend
+        ], 200);
     }
 
     /**
@@ -85,12 +90,23 @@ class GroupsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Groups::find($id)->update([
-            'name' => $request->name,
-            'description' => $request->description
+        $request->validate([
+            'nama' => 'required|unique:friends|max:225',
+            'persediaan' => 'required|numberic',
+            'harga' => 'required', 
         ]);
 
-        return redirect('/groups');
+        $friends = Friends::update([
+            'nama' => $request->nama,
+            'persediaan' => $request->persediaan,
+            'harga' => $request->harga,
+        ]);
+
+            return response()->json([
+                'success' => true,
+                'messege' => 'Post Updated',
+                'data'      => $friends
+            ], 200);   
     }
 
     /**
@@ -101,8 +117,13 @@ class GroupsController extends Controller
      */
     public function destroy($id)
     {
-        Groups::find($id)->delete();
-        return redirect('/groups');
+        $cek = Friends::find($id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Post Updated',
+            'data'    => $cek
+        ], 200);
+
     }
 
     public function addmember($id)
