@@ -8,7 +8,7 @@
     @csrf
   <div class="form-group">
     <label for="exampleInputNama">Nama</label>
-    <input type="text" class="form-control" id="exampleInputNama" name="nama" aria-describedby="emailHelp"> val
+    <input type="text" class="form-control" id="exampleInputNama" name="nama" aria-describedby="emailHelp">
     @error('nama')
     <div class="alert alert-denger">{{$message}}</div>
     @enderror

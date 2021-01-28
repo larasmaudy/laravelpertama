@@ -15,9 +15,13 @@ class GroupsController extends Controller
      */
      public function index()
     {
-        $groups = Groups::orderby('id', 'desc') -> paginate(3);
+        $group = Groups::orderby('id', 'desc') -> paginate(3);
 
-        return view('groups.index', compact('groups'));
+        return response()->json([
+            'success' => true,
+            'messege' => 'Daftar Data Produk',
+            'data'      => $friends
+        ], 200);
     }
 
     /**
@@ -38,6 +42,7 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'name' => 'required|unique:groups|max:255',
             'description' => 'required',
@@ -60,11 +65,11 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        $friend = Friends::where('id', $id)->first();
+        $group = Groups::where('id', $id)->first();
 
         return response()->json([
             'success' => true,
-            'message' => 'Detail Data order',
+            'message' => 'Detail Data Produk',
             'data'    => $friend
         ], 200);
     }
@@ -96,7 +101,7 @@ class GroupsController extends Controller
             'harga' => 'required', 
         ]);
 
-        $friends = Friends::update([
+        $group = Groups::update([
             'nama' => $request->nama,
             'persediaan' => $request->persediaan,
             'harga' => $request->harga,
