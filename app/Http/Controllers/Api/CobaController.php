@@ -19,7 +19,7 @@ class CobaController extends Controller
 
         return response()->json([
             'success' => true,
-            'messege' => 'Daftar Data Produk',
+            'messege' => 'Daftar Teman',
             'data'      => $friends
         ], 200);
     }
@@ -33,15 +33,17 @@ class CobaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'groupsid' => 'required|numberic',
             'nama' => 'required|unique:friends|max:225',
-            'persediaan' => 'required|numberic',
-            'harga' => 'required', 
+            'notlp' => 'required|numberic',
+            'alamat' => 'required',
         ]);
 
         $friends = Friends::create([
+            'groupsid' => $request->groupsid,
             'nama' => $request->nama,
-            'persediaan' => $request->persediaan,
-            'harga' => $request->harga,
+            'notlp' => $request->notlp,
+            'alamat' => $request->alamat,
         ]);
 
         if($friends){
@@ -71,7 +73,7 @@ class CobaController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Detail Data order',
+            'message' => 'Detail Teman',
             'data'    => $friend
         ], 200);
     }
@@ -86,15 +88,17 @@ class CobaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'groupsid' => 'required|numberic',
             'nama' => 'required|unique:friends|max:225',
-            'persediaan' => 'required|numberic',
-            'harga' => 'required', 
+            'notlp' => 'required|numberic',
+            'alamat' => 'required', 
         ]);
 
         $friends = Friends::update([
+            'groupsid' => $request->groupsid,
             'nama' => $request->nama,
-            'persediaan' => $request->persediaan,
-            'harga' => $request->harga,
+            'notlp' => $request->notlp,
+            'alamat' => $request->alamat,s
         ]);
 
             return response()->json([

@@ -9,7 +9,7 @@ class Groups extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['name'];
+    protected $fillable = ['id', 'name', 'description'];
 
     public function friends()
     {

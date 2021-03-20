@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CobaController;
-use App\Http\Controllers\Api\GroupController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

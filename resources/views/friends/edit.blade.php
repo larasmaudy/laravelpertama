@@ -17,15 +17,15 @@
     </div>
     <div class="form-group">
         <label for="exampleInputNotlp">No Tlpn</label>
-        <input type="text" class="form-control" name="persediaan" id="exampleInputNotlp" value="{{old('persediaan') ? old('persediaan') : $friends ['persediaan'] }}">
-        @error('persediaan')
+        <input type="text" class="form-control" name="notlp" id="exampleInputNotlp" value="{{old('notlp') ? old('notlp') : $friends ['notlp'] }}">
+        @error('notlp')
         <div class="alert alert-denger">{{ $message }}</div>
         @enderror
     </div>
     <div class="form-group">
-        <label for="exampleInputAlamat">harga</label>
-        <input type="text" class="form-control" name="harga" id="exampleInputAlamat" value="{{old('harga') ? old('harga') : $friends['harga'] }}">
-        @error('harga')
+        <label for="exampleInputAlamat">alamat</label>
+        <input type="text" class="form-control" name="alamat" id="exampleInputAlamat" value="{{old('alamat') ? old('alamat') : $friends['alamat'] }}">
+        @error('alamat')
         <div class="alert alert-denger">{{$message}}</div>
         @enderror
     </div>

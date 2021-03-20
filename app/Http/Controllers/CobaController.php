@@ -22,15 +22,17 @@ class CobaController extends Controller
     {
         // Validate the request...
         $request->validate([
+            'groupsid' => 'required|numeric',
             'nama' => 'required|unique:friends|max:225',
-            'no_tlp' => 'required|numberic',
+            'notlp' => 'required|numeric',
             'alamat' => 'required', 
         ]);
 
         $friend = new Friends;
-
+        
+        $friend->Groups_Id = $request->groupsid;
         $friend->Nama = $request->name;
-        $friend->No_Tlp = $request->no_tlp;
+        $friend->No_Tlp = $request->notlp;
         $friend->Alamat = $request->alamat;
         $friend->save();
     }
@@ -47,15 +49,17 @@ class CobaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'groupsid' => 'required|numeric',
             'nama' => 'required|unique:friends|max:225',
-            'no_tlp' => 'required|numberic',
-            'alamat' => 'required',   
+            'notlp' => 'required|numeric',
+            'alamat' => 'required', 
         ]);
 
         Friends::find($id)->update([
-            'Nama' => $request->nama,
-            'No_Tlp' => $request->no_tlp,
-            'Alamat' => $request->alamat,
+            'groupsid' => $request->groupsid,
+            'nama' => $request->nama,
+            'notlp' => $request->notlp,
+            'alamat' => $request->alamat,
         ]);
 
         return redirect ('/');

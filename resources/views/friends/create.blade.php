@@ -14,16 +14,16 @@
     @enderror
   </div>
   <div class="form-group">
-    <label for="exampleInputNotlp">Persediaan</label>
-    <input type="text" class="form-control" name="persediaan" id="exampleInputNotlp" value="{{old('persediaan')}}">
-    @error('persediaan')
+    <label for="exampleInputNotlp">No Tlp</label>
+    <input type="text" class="form-control" name="notlp" id="exampleInputNotlp" value="{{old('notlp')}}">
+    @error('notlp')
     <div class="alert alert-denger">{{ $message }}</div>
     @enderror
   </div>
   <div class="form-group">
-    <label for="exampleInputAlamat">Harga</label>
-    <input type="text" class="form-control" name="harga" id="exampleInputAlamat">
-    @error('harga')
+    <label for="exampleInputAlamat">Alamat</label>
+    <input type="text" class="form-control" name="alamat" id="exampleInputAlamat">
+    @error('alamat')
     <div class="alert alert-denger">{{$message}}</div>
     @enderror
   </div>
